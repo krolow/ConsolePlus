@@ -2,6 +2,7 @@
 App::uses('AppShell', 'Console/Command');
 App::uses('Router', 'Routing');
 App::uses('ControllerCollection', 'ConsolePlus.Lib');
+App::uses('ConsoleTable', 'ConsolePlus.Console');
 
 class RouterShell extends AppShell {
     
@@ -29,7 +30,10 @@ class RouterShell extends AppShell {
                 );
             }
         }
-        var_dump($rows);
+        $consoleTable = new ConsoleTable(array('Controller::action', 'Method', 'Route'));
+        $consoleTable->setLegend('List of Routes');
+        $consoleTable->addRows($rows);
+        $this->out($consoleTable->show());
     }
 
     protected function _getInformationOfAction($controller, $action) {
