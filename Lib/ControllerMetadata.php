@@ -1,5 +1,8 @@
 <?php
 App::uses('App', 'Core');
+App::uses('Inflector', 'Utility');
+
+App::uses('ActionMetadata', 'ConsolePlus.Lib');
 
 class ControllerMetadata {
 
@@ -8,6 +11,8 @@ class ControllerMetadata {
     private $__plugin;
 
     private $__reflection;
+
+    private $__actions;
 
     private $__blackList = array(
         'beforeFilter',
@@ -29,6 +34,27 @@ class ControllerMetadata {
         return $this->__controller;
     }
 
+    public function getResourceName() {
+        $name = substr($this->__controller, 0, -10);
+        if (!empty($this->__plugin)) {
+            return $this->__plugin . '.' . $name;
+        }
+
+        return $name;
+    }
+
+    public function getClassName() {
+        return $this->__controller;
+    }
+
+    public function getNameNormalized() {
+        return Inflector::underscore(substr($this->__controller, 0, -10));
+    }
+
+    public function getPluginNameNormalized() {
+        return Inflector::underscore($this->__plugin);
+    }
+
     public function getMethods() {
         if (!$this->__reflection) {
             $this->__reflectClass();
@@ -37,20 +63,18 @@ class ControllerMetadata {
         return $this->filterMethods($this->__reflection->getMethods());
     }
 
-    public function getActionParams($action) {
-        $params = array();
-        foreach ($action->getParameters() as $param) {
-            array_push(
-                $params,
-                $param->getName()
-            );
+    public function getActions() {
+        if ($this->__actions !== null) {
+            return $this->__actions;
         }
 
-        return $params;
-    }
+        $this->__actions = $this->filterMethods($this->getMethods(), true);
 
-    public function getActions() {
-        return $this->filterMethods($this->getMethods(), true);
+        foreach ($this->__actions as $index => $action) {
+            $this->__actions[$index] = new ActionMetadata($action, $this);
+        }
+
+        return $this->__actions;
     }
 
     public function filterMethods($methods, $justAction = false) {
