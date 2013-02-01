@@ -5,7 +5,7 @@ Additional commands and helpers for CakePHP 2 Console.
 
 ## What this Plugin provides:
 
-* ConsoleTable(https://github.com/krolow/ConsolePlus/blob/master/Console/ConsoleTable.php) - A helper to output table data in console. (Not finished yet)
+* [ConsoleTable](https://github.com/krolow/ConsolePlus/blob/master/Console/ConsoleTable.php) - A helper to output table data in console. (Not finished yet)
 * ConsoleTree - A helper to output tree data in console; (Not implemented yet)
 * RouterCommand - List of all routes defined in your application;
 
