@@ -1,4 +1,20 @@
 <?php
+/**
+ * ActionMetadata extracting metada data of one action
+ *
+ * PHP 5.3
+ *
+ * ConsolePlus (https://github.com/krolow/ConsolePlus)
+ * Copyright 2013, Vinícius Krolow (http://github.com/krolow)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2013, Vinícius Krolow (http://github.com/krolow)
+ * @link          https://github.com/krolow/ConsolePlus Console Plus
+ * @package       ConsolePlus.Lib
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 class ActionMetadata {
     
     private $__actionReflected;
