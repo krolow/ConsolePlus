@@ -1,6 +1,27 @@
 <?php
-
+/**
+ * CakePHP ConsoleTable it's a helper to output table data
+ *
+ * PHP 5.3
+ *
+ * ConsolePlus (https://github.com/krolow/ConsolePlus)
+ * Copyright 2013, Vinícius Krolow (http://github.com/krolow)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2013, Vinícius Krolow (http://github.com/krolow)
+ * @link          https://github.com/krolow/ConsolePlus Console Plus
+ * @package       ConsolePlus.Console
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 class ConsoleTable {
+
+    const ALIGN_LEFT = 0;
+
+    const ALIGN_RIGHT = 1;
+
+    const ALIGN_CENTER = 2;
 
     protected $_headers;
 

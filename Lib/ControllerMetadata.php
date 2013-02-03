@@ -1,4 +1,20 @@
 <?php
+/**
+ * ControllerMetadata extracting metada data of one controller
+ *
+ * PHP 5.3
+ *
+ * ConsolePlus (https://github.com/krolow/ConsolePlus)
+ * Copyright 2013, Vinícius Krolow (http://github.com/krolow)
+ *
+ * Licensed under The MIT License
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright     Copyright 2013, Vinícius Krolow (http://github.com/krolow)
+ * @link          https://github.com/krolow/ConsolePlus Console Plus
+ * @package       ConsolePlus.Lib
+ * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
+ */
 App::uses('App', 'Core');
 App::uses('Inflector', 'Utility');
 
@@ -71,7 +87,7 @@ class ControllerMetadata {
         $this->__actions = $this->filterMethods($this->getMethods(), true);
 
         foreach ($this->__actions as $index => $action) {
-            $this->__actions[$index] = new ActionMetadata($action, $this);
+            $this->__actions[$action->name] = new ActionMetadata($action, $this);
         }
 
         return $this->__actions;
@@ -96,10 +112,7 @@ class ControllerMetadata {
             ) {
                 continue;
             }
-            array_push(
-                $valids,
-                $method
-            );
+            $valids[$method->getName()] = $method;
         }
 
         return $valids;
