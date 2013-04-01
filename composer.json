@@ -1,0 +1,19 @@
+{
+    "name": "cobaia/console-plus",
+    "description": "CakePHP Plugin that gives to console additional functionalities",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "console", "console table", "REPL"],
+    "homepage": "https://github.com/krolow/ConsolePlus",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vinícius Krolow",
+            "homepage": "http://cobaia.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "composer/installers": "*",
+        "d11wtq/boris" : "*"
+    } 
+}
