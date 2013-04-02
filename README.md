@@ -8,9 +8,11 @@ Additional commands and helpers for CakePHP 2 Console.
 * [ConsoleTable](https://github.com/krolow/ConsolePlus/blob/master/Console/ConsoleTable.php) - A helper to output table data in console. (Not finished yet)
 * ConsoleTree - A helper to output tree data in console; (Not implemented yet)
 * RouterCommand - List of all routes defined in your application;
+* InteractiveCommand - REPL for CakePHP
 
 ## Usage
 
+### ConsolePlust.Router
 ```bash
 php app/Console/cake.php ConsolePlus.Router
 
@@ -28,6 +30,10 @@ php app/Console/cake.php ConsolePlus.Router
 | ToolbarAccessController::sql_explain()            | ANY                         | /debug_kit/toolbar_access/sql_explain         |
 +---------------------------------------------------------------------------------------------------------------------------------+
 ```
+
+### ConsolePlus.Interactive
+
+<img src="http://s21.postimg.org/8g8ek1vk7/console_boris.gif" />
 
 ## License
 
