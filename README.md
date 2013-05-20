@@ -12,7 +12,7 @@ Additional commands and helpers for CakePHP 2 Console.
 
 ## Usage
 
-### ConsolePlust.Router
+### ConsolePlus.Router
 ```bash
 php app/Console/cake.php ConsolePlus.Router
 
